@@ -1,0 +1,12 @@
+AdSense setup note — Aligned Learning Resources
+
+Do NOT invent an AdSense publisher ID.
+
+When the site is added to the existing AdSense account:
+1. Copy the exact AdSense verification/site code Google provides.
+2. Add it to the <head> of the site pages as instructed by AdSense.
+3. Copy the exact ads.txt line shown in AdSense and publish it as /ads.txt.
+4. Configure advertising/privacy choices appropriately for the site's audience before enabling ads.
+
+Public website contact:
+alignedlearningresources@gmail.com

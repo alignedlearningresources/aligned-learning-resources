@@ -1,0 +1,30 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Whole Number Rounding Review | Ontario Grade 6 Math</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f5f7fa;color:#172033}.back{display:inline-block;margin:16px 5% 0;text-decoration:none;font-weight:700;color:#172033}
+header{padding:18px 5%;background:#fff;border-bottom:1px solid #e2e7ee;display:flex;justify-content:space-between}.brand{font-weight:800;font-size:22px}.meta{color:#667085}.wrap{max-width:1000px;margin:auto;padding:42px 5% 70px}.crumb{color:#667085;font-size:14px}h1{font-size:42px;margin:12px 0 8px}.lead{font-size:18px;color:#667085}.card{background:#fff;border:1px solid #e1e6ed;border-radius:16px;padding:28px;margin-top:28px}.top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:#667085}.progress{height:8px;background:#e8ecf2;border-radius:99px;margin:15px 0 30px;overflow:hidden}.fill{height:100%;background:#172033}.q{font-size:28px;font-weight:800;line-height:1.4;margin:18px 0 22px}.options{display:grid;gap:10px;max-width:760px}.opt{background:#fff;border:1px solid #cfd6df;border-radius:10px;padding:14px;text-align:left;font-size:16px;font-weight:700;cursor:pointer;color:#172033}.feedback{font-weight:800;margin-top:18px}.why{color:#667085;line-height:1.5;margin-top:7px}.next{margin-top:18px;background:#172033;color:#fff;border:0;border-radius:9px;padding:11px 15px;font-weight:800;cursor:pointer}
+@media(max-width:600px){h1{font-size:34px}.q{font-size:23px}header{flex-direction:column;gap:5px}}</style></head>
+<body><a class="back" href="../index.html">← Back to Number</a><header><div class="brand">Canadian Math Practice</div><div class="meta">Ontario • Grade 6</div></header>
+<div class="wrap"><div class="crumb">Grade 6 › Number › Whole Number Rounding Review</div><h1>Whole Number Rounding Review</h1>
+<p class="lead">Review whole-number rounding to support estimation and reasonableness.</p>
+<section class="card"><div class="top"><strong>Rounding Practice</strong><span>Question <b id="n">1</b>/10 • Score <b id="score">0</b></span></div><div class="progress"><div class="fill" id="fill"></div></div>
+<div class="q" id="q"></div><div class="options" id="opts"></div><div class="feedback" id="fb"></div><div class="why" id="why"></div><button class="next" id="next" onclick="nextQ()" style="display:none">Next Question</button></section></div>
+<script>
+let i=0,score=0,answered=false;
+const D=[
+{q:"Round 47 to the nearest ten.",a:"50",o:["40","50","47","60"],w:"The ones digit is 7, so round up: 47 rounds to 50."},
+{q:"Round 263 to the nearest ten.",a:"260",o:["250","260","270","300"],w:"The ones digit is 3, so 263 rounds to 260."},
+{q:"Round 684 to the nearest hundred.",a:"700",o:["600","680","700","800"],w:"The tens digit is 8, so 684 rounds to 700."},
+{q:"Round 3,451 to the nearest hundred.",a:"3,500",o:["3,400","3,450","3,500","4,000"],w:"The tens digit is 5, so 3,451 rounds up to 3,500."},
+{q:"Round 18,249 to the nearest thousand.",a:"18,000",o:["18,000","18,200","18,300","19,000"],w:"The hundreds digit is 2, so 18,249 rounds to 18,000."},
+{q:"Round 56,782 to the nearest ten thousand.",a:"60,000",o:["50,000","56,000","57,000","60,000"],w:"The thousands digit is 6, so 56,782 rounds to 60,000."},
+{q:"Round 204,649 to the nearest thousand.",a:"205,000",o:["204,000","204,600","205,000","210,000"],w:"The hundreds digit is 6, so 204,649 rounds up to 205,000."},
+{q:"Round 450,120 to the nearest hundred thousand.",a:"500,000",o:["400,000","450,000","500,000","600,000"],w:"The ten-thousands digit is 5, so 450,120 rounds to 500,000."},
+{q:"Which number rounds to 390,000 when rounded to the nearest ten thousand?",a:"386,420",o:["384,999","386,420","395,010","404,999"],w:"Numbers from 385,000 through 394,999 round to 390,000. Only 386,420 is in that interval."},
+{q:"A town has 748,650 people. About how many people is that to the nearest hundred thousand?",a:"700,000",o:["700,000","740,000","750,000","800,000"],w:"The ten-thousands digit is 4, so 748,650 rounds down to 700,000."}
+];
+const n=document.getElementById("n"),sc=document.getElementById("score"),fill=document.getElementById("fill"),q=document.getElementById("q"),opts=document.getElementById("opts"),fb=document.getElementById("fb"),why=document.getElementById("why"),next=document.getElementById("next");
+function render(){answered=false;let x=D[i];n.textContent=i+1;sc.textContent=score;fill.style.width=((i+1)*10)+"%";q.textContent=x.q;fb.textContent="";why.textContent="";next.style.display="none";opts.innerHTML=[...x.o].sort(()=>Math.random()-.5).map(v=>`<button class="opt" data-v="${v}" onclick="pick(this)">${v}</button>`).join("")}
+function pick(el){if(answered)return;answered=true;document.querySelectorAll(".opt").forEach(b=>b.disabled=true);let x=D[i];if(el.dataset.v===x.a){score++;sc.textContent=score;fb.textContent="✓ Correct!"}else fb.textContent="✗ Not quite. Correct answer: "+x.a;why.textContent=x.w;next.textContent=i===9?"See Result":"Next Question";next.style.display="inline-block"}
+function nextQ(){if(i<9){i++;render()}else{q.textContent="Practice complete!";opts.innerHTML="";fb.textContent=`Your score: ${score}/10`;why.textContent=score>=8?"Strong work.":"Try again and focus on the digit immediately to the right of the rounding place.";next.style.display="none"}}
+render();</script></body></html>

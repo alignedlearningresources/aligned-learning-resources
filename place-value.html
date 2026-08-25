@@ -1,0 +1,38 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Place Value | Ontario Grade 6 Math</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f5f7fa;color:#172033}header{padding:18px 5%;background:#fff;border-bottom:1px solid #e2e7ee;display:flex;justify-content:space-between}.brand{font-weight:800;font-size:22px}.meta{color:#667085}.wrap{max-width:1000px;margin:auto;padding:42px 5% 70px}.crumb{color:#667085;font-size:14px}h1{font-size:42px;margin:12px 0 8px}.lead{font-size:18px;color:#667085;line-height:1.5}.card{background:#fff;border:1px solid #e1e6ed;border-radius:16px;padding:28px;margin-top:28px}.top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:#667085}.progress{height:8px;background:#e8ecf2;border-radius:99px;margin:15px 0 30px;overflow:hidden}.fill{height:100%;background:#172033}.level{font-size:13px;font-weight:700;background:#eef2f7;display:inline-block;padding:7px 10px;border-radius:999px}.q{font-size:29px;font-weight:800;line-height:1.35;margin:18px 0 22px}.number{font-size:35px;letter-spacing:1px;margin:12px 0 22px;font-weight:800}.options{display:grid;gap:10px;max-width:650px}.opt{background:#fff;border:1px solid #cfd6df;border-radius:10px;padding:14px;text-align:left;font-size:16px;font-weight:700;cursor:pointer;color:#172033}.opt:hover{background:#f4f6f9}.opt:disabled{cursor:default}.feedback{font-weight:800;margin-top:18px}.explain{color:#667085;line-height:1.5;margin-top:7px}.next,.restart{margin-top:18px;border:0;border-radius:9px;padding:11px 15px;font-weight:800;cursor:pointer}.next{background:#172033;color:#fff}.restart{background:#e8ecf2;color:#172033;margin-left:8px}.intro{background:#fff;border:1px solid #e1e6ed;border-radius:16px;padding:22px;margin-top:25px}.intro strong{display:block;margin-bottom:7px}
+@media(max-width:600px){h1{font-size:34px}.q{font-size:24px}.number{font-size:29px}header{flex-direction:column;gap:5px}}
+</style><style>.masterback{display:inline-block;margin:16px 5% 0;text-decoration:none;font-weight:700;color:#172033}</style></head><body><a class="masterback" href="../index.html">← Back to Number</a>
+<header><div class="brand">Canadian Math Practice</div><div class="meta">Ontario • Grade 6</div></header>
+<div class="wrap"><div class="crumb">Grade 6 › Number › Place Value</div><h1>Place Value</h1>
+<p class="lead">10 questions that build from simple place value to Grade 6 mastery.</p>
+<div class="intro"><strong>How this practice works</strong>Questions become gradually more challenging. Each question has one clear correct answer.</div>
+<section class="card" id="box"><div class="top"><strong>Place Value Practice</strong><span>Question <b id="n">1</b>/10 • Score <b id="score">0</b></span></div>
+<div class="progress"><div class="fill" id="fill"></div></div><span class="level" id="level"></span>
+<div class="q" id="q"></div><div class="number" id="number"></div><div class="options" id="opts"></div>
+<div class="feedback" id="fb"></div><div class="explain" id="why"></div><button class="next" id="next" onclick="nextQ()" style="display:none">Next Question</button></section></div>
+<script>
+let i=0,score=0,correct="",answered=false;
+const data=[
+{num:"47",q:"What digit is in the tens place?",a:"4",o:["4","7","40","47"],why:"In 47, the digit 4 is in the tens place."},
+{num:"326",q:"What digit is in the hundreds place?",a:"3",o:["3","2","6","300"],why:"In 326, the digit 3 is in the hundreds place."},
+{num:"5,814",q:"What is the value of the digit 8?",a:"800",o:["8","80","800","8,000"],why:"The 8 is in the hundreds place, so its value is 800."},
+{num:"27,418",q:"The digit 7 is in which place?",a:"thousands",o:["hundreds","thousands","ten thousands","tens"],why:"In 27,418, the 7 represents 7,000, so it is in the thousands place."},
+{num:"83,245",q:"What digit is in the ten-thousands place?",a:"8",o:["8","3","2","5"],why:"The ten-thousands digit in 83,245 is 8."},
+{num:"406,731",q:"What is the value of the digit 6?",a:"6,000",o:["600","6,000","60,000","600,000"],why:"The 6 is in the thousands place, so its value is 6,000."},
+{num:"725,419",q:"The digit 2 is in which place?",a:"ten thousands",o:["thousands","ten thousands","hundred thousands","hundreds"],why:"The 2 represents 20,000, so it is in the ten-thousands place."},
+{num:"592,531",q:"Which digit has a value of 90,000?",a:"9",o:["5","9","2","3"],why:"The digit 9 is in the ten-thousands place: 9 × 10,000 = 90,000."},
+{num:"907,567",q:"What is the value of the digit 9?",a:"900,000",o:["9,000","90,000","900,000","9,000,000"],why:"The 9 is in the hundred-thousands place, so its value is 900,000."},
+{num:"454,504",q:"What is the sum of the values represented by all three digits 4?",a:"404,004",o:["444,000","404,004","400,044","454,504"],why:"The three 4s represent 400,000, 4,000, and 4. Their sum is 404,004."}
+];
+function render(){
+ answered=false;let x=data[i];document.getElementById("n").textContent=i+1;document.getElementById("score").textContent=score;document.getElementById("fill").style.width=((i+1)*10)+"%";
+ document.getElementById("level").textContent=i<3?"Build the Skill":i<7?"Grade-Level Practice":"Mastery";
+ document.getElementById("q").textContent=x.q;document.getElementById("number").textContent=x.num;document.getElementById("fb").textContent="";document.getElementById("why").textContent="";document.getElementById("next").style.display="none";
+ let arr=[...x.o].sort(()=>Math.random()-.5);document.getElementById("opts").innerHTML=arr.map(v=>`<button class="opt" data-v="${v}" onclick="pick(this)">${v}</button>`).join("");
+}
+function pick(el){if(answered)return;answered=true;document.querySelectorAll(".opt").forEach(b=>b.disabled=true);let x=data[i];if(el.dataset.v===x.a){score++;document.getElementById("score").textContent=score;document.getElementById("fb").textContent="✓ Correct!"}else document.getElementById("fb").textContent="✗ Not quite. Correct answer: "+x.a;document.getElementById("why").textContent=x.why;document.getElementById("next").textContent=i===9?"See Result":"Next Question";document.getElementById("next").style.display="inline-block"}
+function nextQ(){if(i<9){i++;render()}else{document.getElementById("level").textContent="Complete";document.getElementById("q").textContent="Practice complete!";document.getElementById("number").textContent=`Your score: ${score}/10`;document.getElementById("opts").innerHTML="";document.getElementById("fb").textContent=score>=8?"Strong work.":"Review the explanations and try again.";document.getElementById("why").textContent="";document.getElementById("next").style.display="none";let b=document.createElement("button");b.className="restart";b.textContent="Try Again";b.onclick=()=>{i=0;score=0;render()};document.getElementById("opts").appendChild(b)}}
+render();
+</script></body></html>
