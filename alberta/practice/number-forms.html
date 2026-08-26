@@ -1,0 +1,32 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Number Forms | Alberta Grade 6 Math</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f5f7fa;color:#172033}header{padding:18px 5%;background:#fff;border-bottom:1px solid #e2e7ee;display:flex;justify-content:space-between}.brand{font-weight:800;font-size:22px}.meta{color:#667085}.wrap{max-width:1000px;margin:auto;padding:42px 5% 70px}.crumb{color:#667085;font-size:14px}h1{font-size:42px;margin:12px 0 8px}.lead{font-size:18px;color:#667085}.card{background:#fff;border:1px solid #e1e6ed;border-radius:16px;padding:28px;margin-top:28px}.top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:#667085}.progress{height:8px;background:#e8ecf2;border-radius:99px;margin:15px 0 30px;overflow:hidden}.fill{height:100%;background:#172033}.q{font-size:29px;font-weight:800;line-height:1.35;margin:18px 0 22px}.prompt{font-size:24px;font-weight:700;margin:12px 0 22px}.options{display:grid;gap:10px;max-width:760px}.opt{background:#fff;border:1px solid #cfd6df;border-radius:10px;padding:14px;text-align:left;font-size:16px;font-weight:700;cursor:pointer;color:#172033}.feedback{font-weight:800;margin-top:18px}.why{color:#667085;line-height:1.5;margin-top:7px}.next{margin-top:18px;background:#172033;color:white;border:0;border-radius:9px;padding:11px 15px;font-weight:800;cursor:pointer}
+@media(max-width:600px){h1{font-size:34px}.q{font-size:24px}.prompt{font-size:20px}header{flex-direction:column;gap:5px}}
+</style><style>.masterback{display:inline-block;margin:16px 5% 0;text-decoration:none;font-weight:700;color:#172033}</style></head><body><a class="masterback" href="../index.html">← Back to Number</a>
+<header><div class="brand">Canadian Math Practice</div><div class="meta">Alberta • Grade 6</div></header>
+<div class="wrap"><div class="crumb">Grade 6 › Number › Number Forms</div><h1>Number Forms</h1>
+<p class="lead">Standard form, word form, and expanded form — from simple numbers to Grade 6 mastery.</p>
+<section class="card"><div class="top"><strong>Number Forms Practice</strong><span>Question <b id="n">1</b>/10 • Score <b id="score">0</b></span></div>
+<div class="progress"><div class="fill" id="fill"></div></div><div class="q" id="q"></div><div class="prompt" id="prompt"></div><div class="options" id="opts"></div>
+<div class="feedback" id="fb"></div><div class="why" id="why"></div><button class="next" id="next" onclick="nextQ()" style="display:none">Next Question</button></section></div>
+<script>
+let i=0,score=0,answered=false;
+const data=[
+{q:"Which is the word form of this number?",p:"42",a:"forty-two",o:["forty-two","fourteen-two","four hundred two","four thousand two"],w:"42 is written as forty-two."},
+{q:"Which is the standard form?",p:"three hundred six",a:"306",o:["306","360","3,006","36"],w:"Three hundred six is 306."},
+{q:"Which is the expanded form?",p:"584",a:"500 + 80 + 4",o:["500 + 80 + 4","50 + 80 + 4","500 + 8 + 4","500 + 84"],w:"584 = 500 + 80 + 4."},
+{q:"Which is the standard form?",p:"four thousand seventy-two",a:"4,072",o:["4,072","4,702","4,720","40,072"],w:"Four thousand seventy-two is 4,072."},
+{q:"Which is the expanded form?",p:"23,405",a:"20,000 + 3,000 + 400 + 5",o:["20,000 + 3,000 + 400 + 5","20,000 + 300 + 40 + 5","2,000 + 3,000 + 400 + 5","20,000 + 3,000 + 40 + 5"],w:"The non-zero place values are 20,000, 3,000, 400, and 5."},
+{q:"Which is the word form?",p:"70,608",a:"seventy thousand six hundred eight",o:["seventy thousand six hundred eight","seven thousand six hundred eight","seventy thousand sixty-eight","seven hundred six thousand eight"],w:"70,608 is seventy thousand six hundred eight."},
+{q:"Which number matches this expanded form?",p:"300,000 + 40,000 + 2,000 + 70 + 6",a:"342,076",o:["342,076","342,706","340,276","302,476"],w:"300,000 + 40,000 + 2,000 + 70 + 6 = 342,076."},
+{q:"Which is the expanded form?",p:"506,090",a:"500,000 + 6,000 + 90",o:["500,000 + 6,000 + 90","500,000 + 60,000 + 90","500,000 + 6,000 + 900","50,000 + 6,000 + 90"],w:"Zero digits contribute no additional non-zero term: 506,090 = 500,000 + 6,000 + 90."},
+{q:"Which is the standard form?",p:"nine hundred four thousand seventeen",a:"904,017",o:["904,017","940,017","904,170","900,417"],w:"Nine hundred four thousand seventeen is 904,017."},
+{q:"Which representation is equal to 830,405?",p:"Choose one.",a:"800,000 + 30,000 + 400 + 5",o:["800,000 + 30,000 + 400 + 5","800,000 + 3,000 + 400 + 5","800,000 + 30,000 + 40 + 5","800,000 + 30,000 + 4,000 + 5"],w:"830,405 has 8 hundred-thousands, 3 ten-thousands, 4 hundreds, and 5 ones."}
+];
+function render(){answered=false;let x=data[i];n.textContent=i+1;scoreEl.textContent=score;fill.style.width=((i+1)*10)+"%";q.textContent=x.q;prompt.textContent=x.p;fb.textContent="";why.textContent="";next.style.display="none";let arr=[...x.o].sort(()=>Math.random()-.5);opts.innerHTML=arr.map(v=>`<button class="opt" data-v="${v.replace(/"/g,'&quot;')}" onclick="pick(this)">${v}</button>`).join("")}
+const n=document.getElementById("n"),scoreEl=document.getElementById("score"),fill=document.getElementById("fill"),q=document.getElementById("q"),prompt=document.getElementById("prompt"),opts=document.getElementById("opts"),fb=document.getElementById("fb"),why=document.getElementById("why"),next=document.getElementById("next");
+function pick(el){if(answered)return;answered=true;document.querySelectorAll(".opt").forEach(b=>b.disabled=true);let x=data[i];if(el.dataset.v===x.a){score++;scoreEl.textContent=score;fb.textContent="✓ Correct!"}else fb.textContent="✗ Not quite. Correct answer: "+x.a;why.textContent=x.w;next.textContent=i===9?"See Result":"Next Question";next.style.display="inline-block"}
+function nextQ(){if(i<9){i++;render()}else{q.textContent="Practice complete!";prompt.textContent=`Your score: ${score}/10`;opts.innerHTML="";fb.textContent=score>=8?"Great work!":"Try the practice again to strengthen your number-form skills.";why.textContent="";next.style.display="none"}}
+render();
+</script></body></html>
