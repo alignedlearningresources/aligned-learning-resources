@@ -1,13 +1,14 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+﻿<!doctype html><html lang="en"><head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7497128783194854" crossorigin="anonymous"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Number Forms | Ontario Grade 6 Math</title>
 <style>
 *{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f5f7fa;color:#172033}header{padding:18px 5%;background:#fff;border-bottom:1px solid #e2e7ee;display:flex;justify-content:space-between}.brand{font-weight:800;font-size:22px}.meta{color:#667085}.wrap{max-width:1000px;margin:auto;padding:42px 5% 70px}.crumb{color:#667085;font-size:14px}h1{font-size:42px;margin:12px 0 8px}.lead{font-size:18px;color:#667085}.card{background:#fff;border:1px solid #e1e6ed;border-radius:16px;padding:28px;margin-top:28px}.top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:#667085}.progress{height:8px;background:#e8ecf2;border-radius:99px;margin:15px 0 30px;overflow:hidden}.fill{height:100%;background:#172033}.q{font-size:29px;font-weight:800;line-height:1.35;margin:18px 0 22px}.prompt{font-size:24px;font-weight:700;margin:12px 0 22px}.options{display:grid;gap:10px;max-width:760px}.opt{background:#fff;border:1px solid #cfd6df;border-radius:10px;padding:14px;text-align:left;font-size:16px;font-weight:700;cursor:pointer;color:#172033}.feedback{font-weight:800;margin-top:18px}.why{color:#667085;line-height:1.5;margin-top:7px}.next{margin-top:18px;background:#172033;color:white;border:0;border-radius:9px;padding:11px 15px;font-weight:800;cursor:pointer}
 @media(max-width:600px){h1{font-size:34px}.q{font-size:24px}.prompt{font-size:20px}header{flex-direction:column;gap:5px}}
-</style><style>.masterback{display:inline-block;margin:16px 5% 0;text-decoration:none;font-weight:700;color:#172033}</style></head><body><a class="masterback" href="../index.html">← Back to Number</a>
-<header><div class="brand">Canadian Math Practice</div><div class="meta">Ontario • Grade 6</div></header>
-<div class="wrap"><div class="crumb">Grade 6 › Number › Number Forms</div><h1>Number Forms</h1>
-<p class="lead">Standard form, word form, and expanded form — from simple numbers to Grade 6 mastery.</p>
-<section class="card"><div class="top"><strong>Number Forms Practice</strong><span>Question <b id="n">1</b>/10 • Score <b id="score">0</b></span></div>
+</style><style>.masterback{display:inline-block;margin:16px 5% 0;text-decoration:none;font-weight:700;color:#172033}</style></head><body><a class="masterback" href="../index.html">â† Back to Number</a>
+<header><div class="brand">Canadian Math Practice</div><div class="meta">Ontario â€¢ Grade 6</div></header>
+<div class="wrap"><div class="crumb">Grade 6 â€º Number â€º Number Forms</div><h1>Number Forms</h1>
+<p class="lead">Standard form, word form, and expanded form â€” from simple numbers to Grade 6 mastery.</p>
+<section class="card"><div class="top"><strong>Number Forms Practice</strong><span>Question <b id="n">1</b>/10 â€¢ Score <b id="score">0</b></span></div>
 <div class="progress"><div class="fill" id="fill"></div></div><div class="q" id="q"></div><div class="prompt" id="prompt"></div><div class="options" id="opts"></div>
 <div class="feedback" id="fb"></div><div class="why" id="why"></div><button class="next" id="next" onclick="nextQ()" style="display:none">Next Question</button></section></div>
 <script>
@@ -26,7 +27,7 @@ const data=[
 ];
 function render(){answered=false;let x=data[i];n.textContent=i+1;scoreEl.textContent=score;fill.style.width=((i+1)*10)+"%";q.textContent=x.q;prompt.textContent=x.p;fb.textContent="";why.textContent="";next.style.display="none";let arr=[...x.o].sort(()=>Math.random()-.5);opts.innerHTML=arr.map(v=>`<button class="opt" data-v="${v.replace(/"/g,'&quot;')}" onclick="pick(this)">${v}</button>`).join("")}
 const n=document.getElementById("n"),scoreEl=document.getElementById("score"),fill=document.getElementById("fill"),q=document.getElementById("q"),prompt=document.getElementById("prompt"),opts=document.getElementById("opts"),fb=document.getElementById("fb"),why=document.getElementById("why"),next=document.getElementById("next");
-function pick(el){if(answered)return;answered=true;document.querySelectorAll(".opt").forEach(b=>b.disabled=true);let x=data[i];if(el.dataset.v===x.a){score++;scoreEl.textContent=score;fb.textContent="✓ Correct!"}else fb.textContent="✗ Not quite. Correct answer: "+x.a;why.textContent=x.w;next.textContent=i===9?"See Result":"Next Question";next.style.display="inline-block"}
+function pick(el){if(answered)return;answered=true;document.querySelectorAll(".opt").forEach(b=>b.disabled=true);let x=data[i];if(el.dataset.v===x.a){score++;scoreEl.textContent=score;fb.textContent="âœ“ Correct!"}else fb.textContent="âœ— Not quite. Correct answer: "+x.a;why.textContent=x.w;next.textContent=i===9?"See Result":"Next Question";next.style.display="inline-block"}
 function nextQ(){if(i<9){i++;render()}else{q.textContent="Practice complete!";prompt.textContent=`Your score: ${score}/10`;opts.innerHTML="";fb.textContent=score>=8?"Great work!":"Try the practice again to strengthen your number-form skills.";why.textContent="";next.style.display="none"}}
 render();
 </script></body></html>
