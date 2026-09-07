@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="40-question cumulative Alberta Grade 6 math practice across curriculum areas.">
+<title>PAT-Style Part B | Aligned Learning Resources</title><link rel="canonical" href="https://alignedlearningresources.ca/alberta/assessment/part-b.html">
+<link rel="stylesheet" href="../site.css">
+<style>
+.quiz-shell{max-width:900px;margin:0 auto;padding:34px 24px 80px}
+.quiz-top{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:18px}
+.backlink{text-decoration:none;color:var(--blue);font-weight:800}
+.quiz-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px;box-shadow:0 8px 30px rgba(18,35,63,.06)}
+.quiz-meta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:14px;font-weight:700}
+.progress{height:9px;background:#e9eef6;border-radius:999px;overflow:hidden;margin:18px 0 28px}
+.progress>div{height:100%;background:linear-gradient(90deg,var(--blue),var(--teal));width:0}
+.question{font-size:24px;line-height:1.45;font-weight:800;color:var(--navy);white-space:pre-line}
+.options{display:grid;gap:11px;margin-top:22px}
+.choice{width:100%;text-align:left;background:#fff;border:1.5px solid #cfd9e8;border-radius:12px;padding:14px 16px;font-size:16px;line-height:1.4;cursor:pointer}
+.choice:hover{border-color:var(--blue);background:#f7faff}
+.choice[disabled]{cursor:default}
+.choice.correct{border-color:#0f9f67;background:#edfdf5}
+.choice.wrong{border-color:#d14343;background:#fff3f3}
+.feedback{margin-top:18px;font-weight:850;min-height:24px}
+.next{margin-top:16px;border:0;border-radius:10px;padding:11px 16px;background:var(--navy);color:#fff;font-weight:850;cursor:pointer;display:none}
+.result{text-align:center;padding:16px 0}
+.result h2{font-size:32px;color:var(--navy)}
+@media(max-width:650px){.quiz-shell{padding:22px 14px 60px}.quiz-card{padding:20px}.question{font-size:20px}}
+</style>
+</head>
+<body>
+<header class="site-header"><nav class="nav"><a class="brand" href="../../index.html">Aligned Learning Resources</a><div class="navlinks"><a href="../../index.html">Home</a><a href="../index.html">Alberta</a><a href="../../ontario/index.html">Ontario</a></div></nav></header>
+<main class="quiz-shell">
+<div class="quiz-top"><a class="backlink" href="../index.html">← Back to Alberta Grade 6</a><span class="eyebrow">PAT-STYLE • PART B</span></div>
+<h1 style="font-size:40px;color:var(--navy);margin:8px 0 8px">PAT-Style Part B</h1>
+<p style="font-size:17px;color:var(--muted);line-height:1.6;margin:0 0 24px">40-question cumulative Alberta Grade 6 math practice across curriculum areas.</p>
+<section class="quiz-card">
+<div class="quiz-meta"><strong>Practice</strong><span>Question <b id="num">1</b>/<b id="total"></b> · Score <b id="score">0</b></span></div>
+<div class="progress"><div id="bar"></div></div>
+<div class="question" id="question"></div>
+<div class="options" id="options"></div>
+<div class="feedback" id="feedback"></div>
+<button class="next" id="next">Next Question</button>
+</section>
+</main>
+<script>
+const DATA=[{"q": "The temperature was −6°C in the morning. By afternoon, it increased by 9°C. What was the afternoon temperature?", "o": ["−15°C", "−3°C", "3°C", "15°C"], "a": "C"}, {"q": "Which number is divisible by both 3 and 5?", "o": ["245", "315", "428", "512"], "a": "B"}, {"q": "A school ordered 24 boxes of markers. Each box contains 36 markers. How many markers were ordered?", "o": ["60", "144", "720", "864"], "a": "D"}, {"q": "A recipe uses 3/4 cup of oats for one batch. Liam makes 6 batches. How many cups of oats are needed?", "o": ["3 1/2", "4", "4 1/2", "5 1/4"], "a": "C"}, {"q": "A pattern is shown.\nPosition: 1, 2, 3, 4\nTerm: 7, 12, 17, 22\nWhich expression gives the term at position n?", "o": ["5n + 2", "5n + 7", "7n − 2", "12n − 5"], "a": "A"}, {"q": "A rectangle has an area of 72 cm². Which dimensions give the least perimeter?", "o": ["1 cm × 72 cm", "2 cm × 36 cm", "6 cm × 12 cm", "8 cm × 9 cm"], "a": "D"}, {"q": "A survey produced these results:\nReading 8, Sports 12, Gaming 6, Art 4.\nWhat is the relative frequency of students who chose Sports?", "o": ["12%", "30%", "40%", "60%"], "a": "C"}, {"q": "Point P(−3, 4) is reflected across the y-axis. What are the coordinates of its image?", "o": ["(−3, −4)", "(3, 4)", "(3, −4)", "(4, −3)"], "a": "B"}, {"q": "A right rectangular prism has a base area of 24 cm² and a perpendicular height of 7 cm. What is its volume?", "o": ["31 cm³", "84 cm³", "168 cm³", "336 cm³"], "a": "C"}, {"q": "A bag contains equal-sized counters: 5 red, 3 blue, 2 green. A counter is selected at random and replaced. After 20 trials, blue was selected 9 times. Which statement is best supported?", "o": ["Blue must be selected 9 times in every 20 trials.", "The experimental relative frequency of blue is 9/20.", "The theoretical likelihood of blue is 9/20.", "Blue is the most likely colour based on the counters in the bag."], "a": "B"}, {"q": "A store sold $248.75 worth of supplies on Monday and $176.90 on Tuesday. What was the total amount sold?", "o": ["$415.65", "$425.65", "$425.75", "$435.65"], "a": "B"}, {"q": "Which is the prime factorization of 180?", "o": ["2² × 3² × 5", "2 × 3² × 10", "2³ × 3 × 5", "2² × 3 × 5²"], "a": "A"}, {"q": "A container holds 6.4 L of juice. The juice is poured equally into 8 bottles. How much juice is in each bottle?", "o": ["0.08 L", "0.8 L", "1.25 L", "8.0 L"], "a": "B"}, {"q": "A class has a ratio of 3 students wearing glasses for every 7 students not wearing glasses. There are 28 students who are not wearing glasses. How many students are wearing glasses?", "o": ["9", "12", "18", "21"], "a": "B"}, {"q": "The equation 3x + 5 = 26 represents the cost of 3 identical items plus a $5 fee. What is the cost of one item?", "o": ["$5", "$7", "$9", "$21"], "a": "B"}, {"q": "A parallelogram has an area of 54 cm² and a base of 9 cm. What is its perpendicular height?", "o": ["5 cm", "6 cm", "9 cm", "12 cm"], "a": "B"}, {"q": "Triangle ABC has vertices A(1,1), B(4,1), C(1,3). It is translated 2 units right and 4 units up. What are the coordinates of C′?", "o": ["(3, 7)", "(3, −1)", "(5, 7)", "(−1, 7)"], "a": "A"}, {"q": "A regular octagon is rotated about its centre. What is the smallest positive angle that maps the octagon exactly onto itself?", "o": ["30°", "40°", "45°", "90°"], "a": "C"}, {"q": "A spinner was spun several times.\nRed 18, Blue 12, Green 6, Yellow 4.\nWhich statement is correct?", "o": ["Red has a relative frequency of 18%.", "Blue has a relative frequency of 30%.", "Green has a relative frequency of 20%.", "Yellow has a relative frequency of 25%."], "a": "B"}, {"q": "Two students perform the same experiment.\nStudent A: 8 successes in 10 trials\nStudent B: 62 successes in 100 trials\nThe expected likelihood of success is 60%.\nWhich result generally provides the better estimate of the expected likelihood?", "o": ["Student A, because 80% is greater than 60%.", "Student A, because fewer trials are more reliable.", "Student B, because the larger number of trials generally provides a better estimate.", "Both must provide equally accurate estimates."], "a": "C"}, {"q": "The values of two integers are shown: A = −14, B = 9. What is A − B?", "o": ["−23", "−5", "5", "23"], "a": "A"}, {"q": "A community centre had $18,450.75 available for a project. It spent $7,896.40. How much money remained?", "o": ["$10,454.35", "$10,554.35", "$10,564.35", "$11,554.35"], "a": "B"}, {"q": "Three friends share 7 identical pizzas equally. How much pizza does each friend receive?", "o": ["2 1/3", "2 1/7", "3 2/7", "3 1/3"], "a": "A"}, {"q": "A student calculates 3 1/4 + 2 1/2. What is the sum?", "o": ["5 1/4", "5 3/4", "6 1/4", "6 3/4"], "a": "B"}, {"q": "A jacket costs $80. The sale price is 25% less than the original price. What is the sale price?", "o": ["$20", "$55", "$60", "$75"], "a": "C"}, {"q": "The table represents a function.\nx: 1, 2, 3, 4\ny: 7, 10, 13, 16\nWhich equation represents the relationship?", "o": ["y = 3x + 4", "y = 4x + 3", "y = 3x + 7", "y = 7x"], "a": "A"}, {"q": "A composite figure is made from two non-overlapping rectangles.\nRectangle A: 8 m × 5 m\nRectangle B: 3 m × 4 m\nWhat is the total area of the composite figure?", "o": ["40 m²", "43 m²", "52 m²", "96 m²"], "a": "C"}, {"q": "Triangle ABC has vertices A(1,1), B(4,1), C(1,3). The triangle is rotated 180° about vertex A. What are the coordinates of B′?", "o": ["(−4, −1)", "(−2, 1)", "(1, −2)", "(4, −1)"], "a": "B"}, {"q": "An idealized geometric leaf has matching left and right halves across its centre vein. Which statement best describes the symmetry?", "o": ["The centre vein can act as a line of reflection.", "The leaf must have rotational symmetry of order 4.", "The leaf has no symmetry because it is found in nature.", "Every line through the leaf is a line of reflection."], "a": "A"}, {"q": "A survey asks students: “Which ONE activity would you most like at the school celebration?” Which set of response choices makes this a useful closed-list statistical question?", "o": ["Yes, No", "Sports, Art, Music, Games", "Explain why celebrations are important.", "Write any activity you can think of."], "a": "B"}, {"q": "Which statement about division is correct?", "o": ["48 ÷ 0 = 0", "0 ÷ 8 = 8", "0 ÷ 8 = 0", "48 ÷ 0 = 48"], "a": "C"}, {"q": "A school has 468 students. They are placed equally into 9 groups. How many students are in each group?", "o": ["42", "48", "52", "58"], "a": "C"}, {"q": "Which fraction is equivalent to the decimal 0.625?", "o": ["3/8", "5/8", "3/5", "7/8"], "a": "B"}, {"q": "A cyclist travels 36 km in 2 hours at a constant rate. At this rate, how far will the cyclist travel in 5 hours?", "o": ["72 km", "80 km", "90 km", "180 km"], "a": "C"}, {"q": "A student simplifies the expression 4(x + 3). Which expression is equivalent?", "o": ["4x + 3", "4x + 7", "4x + 12", "12x"], "a": "C"}, {"q": "A triangular garden has a base of 14 m and a perpendicular height of 9 m. What is its area?", "o": ["23 m²", "63 m²", "126 m²", "252 m²"], "a": "B"}, {"q": "Triangle PQR has vertices P(2,2), Q(5,2), R(2,4). The triangle is rotated 90° counterclockwise about vertex P. What are the coordinates of Q′?", "o": ["(2, 5)", "(−1, 2)", "(5, 2)", "(2, −1)"], "a": "A"}, {"q": "A regular polygon has 6 lines of reflection symmetry and rotational symmetry of order 6. Which polygon is it?", "o": ["Equilateral triangle", "Square", "Regular pentagon", "Regular hexagon"], "a": "D"}, {"q": "A class records the number of books read by 12 students.\nBooks Read 1 → 2 students; 2 → 5 students; 3 → 3 students; 4 → 2 students.\nWhich statement is correct?", "o": ["The mode is 2 books because it occurs most frequently.", "The mode is 5 books because 5 students read 2 books.", "The mode is 3 books because 3 is in the middle of the table.", "There is no mode because every number of books was chosen."], "a": "A"}, {"q": "A rectangular prism has a volume of 360 cm³. Its base measures 10 cm by 6 cm. What is the height of the prism?", "o": ["4 cm", "6 cm", "30 cm", "60 cm"], "a": "B"}];
+let i=0, score=0, answered=false;
+const num=document.getElementById('num'), total=document.getElementById('total'), scoreEl=document.getElementById('score'),
+bar=document.getElementById('bar'), q=document.getElementById('question'), opts=document.getElementById('options'),
+fb=document.getElementById('feedback'), next=document.getElementById('next');
+total.textContent=DATA.length;
+function render(){
+  answered=false; const x=DATA[i]; num.textContent=i+1; scoreEl.textContent=score;
+  bar.style.width=((i+1)/DATA.length*100)+'%'; q.textContent=x.q; fb.textContent=''; next.style.display='none';
+  opts.innerHTML='';
+  x.o.forEach((v,idx)=>{
+    const letter=String.fromCharCode(65+idx);
+    const b=document.createElement('button'); b.className='choice'; b.dataset.letter=letter;
+    b.textContent=letter+'. '+v; b.onclick=()=>pick(b,x); opts.appendChild(b);
+  });
+}
+function pick(el,x){
+  if(answered)return; answered=true;
+  document.querySelectorAll('.choice').forEach(b=>{b.disabled=true;if(b.dataset.letter===x.a)b.classList.add('correct')});
+  if(el.dataset.letter===x.a){score++;scoreEl.textContent=score;fb.textContent='✓ Correct!';}
+  else{el.classList.add('wrong');fb.textContent='Correct answer: '+x.a;}
+  next.textContent=i===DATA.length-1?'See Result':'Next Question';next.style.display='inline-block';
+}
+next.onclick=()=>{if(i<DATA.length-1){i++;render()}else{
+  q.innerHTML='<div class="result"><h2>Practice complete!</h2><p>Your score: <strong>'+score+'/'+DATA.length+'</strong></p></div>';
+  opts.innerHTML='';fb.textContent='';next.style.display='none';bar.style.width='100%';
+}};
+render();
+</script>
+</body></html>
