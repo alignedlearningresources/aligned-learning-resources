@@ -1,0 +1,26 @@
+name: Apply Alberta V2 Preview
+on:
+  push:
+    branches:
+      - alberta-grade6-color-redesign
+permissions:
+  contents: write
+jobs:
+  apply:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: alberta-grade6-color-redesign
+      - name: Apply V2 package
+        run: |
+          base64 -d .v2payload.b64 > /tmp/v2.tar.xz
+          tar -xJf /tmp/v2.tar.xz -C .
+          rm -f .v2payload.b64
+          rm -rf .v2parts
+          git config user.name github-actions-bot
+          git config user.email actions@github.com
+          git add -A
+          git commit -m 'Apply complete Alberta Grade 6 V2 preview'
+          git push origin HEAD:alberta-grade6-color-redesign
